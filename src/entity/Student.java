@@ -1,5 +1,9 @@
 package entity;
 
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -25,6 +29,12 @@ public class Student {
     @JoinTable(
             name = "address_table",
             joinColumns = @JoinColumn(name="id")
+    )
+    @GenericGenerator(name = "address_sequence",strategy = "sequence")
+    @CollectionId(
+            columns = @Column(name = "address_id"),
+            generator = "address_sequence",
+            type = @Type(type = "int")
     )
     private Collection<Address> addressesList;
 
