@@ -44,4 +44,13 @@ public class Address {
     public void setPostal(int postal) {
         this.postal = postal;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", postal=" + postal +
+                '}';
+    }
 }

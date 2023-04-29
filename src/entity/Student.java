@@ -70,4 +70,13 @@ public class Student {
     public void setAddressesList(Collection<Address> addressesList) {
         this.addressesList = addressesList;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", name='" + name + '\'' +
+                ", addressesList=" + addressesList +
+                '}';
+    }
 }

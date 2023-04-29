@@ -8,17 +8,18 @@ import java.util.Arrays;
 
 public class AppInitializer {
     public static void main(String[] args) {
-        Address address1=new Address("Sri Lanka","galle",55465);
+        /*Address address1=new Address("Sri Lanka","galle",55465);
         Address address2=new Address("Sri Lanka","emb",1300);
         Address address3=new Address("USA","texas",54654);
         Student student1=new Student();
-       /* ArrayList list=new ArrayList();
+        ArrayList list=new ArrayList();
         list.add(address1);
         list.add(address2);
-        list.add(address3);*/
+        list.add(address3);
         student1.setName("Ruwan");
-        student1.setAddressesList(Arrays.asList(address1,address2,address3));
-        saveStudent(student1);
+        student1.setAddressesList(list); //student1.setAddressesList(Arrays.asList(address1,address2,address3));
+        saveStudent(student1);*/
+        findStudent(1);
     }
 
     private static void saveStudent(Student student) {
@@ -27,6 +28,12 @@ public class AppInitializer {
             long saveId= (long) session.save(student);
             transaction.commit();
             System.out.println("Saved student primary key: "+saveId);
+        }
+    }
+    private static void findStudent(long id){
+        try(Session session=HibernateUtil.getSessionFactory().openSession()){
+            Student selectedStudent = session.find(Student.class, id);
+            System.out.println(selectedStudent);
         }
     }
 }
