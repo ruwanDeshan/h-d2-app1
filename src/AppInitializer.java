@@ -3,11 +3,21 @@ import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class AppInitializer {
     public static void main(String[] args) {
-        Address permanentAddress=new Address("Sri Lanka","Colombo",1500);
-        Address residentialAddress=new Address("Sri Lanka","emb",1300);
-        Student student1=new Student(1,"amal",residentialAddress,permanentAddress);
+        Address address1=new Address("Sri Lanka","galle",55465);
+        Address address2=new Address("Sri Lanka","emb",1300);
+        Address address3=new Address("USA","texas",54654);
+        Student student1=new Student();
+       /* ArrayList list=new ArrayList();
+        list.add(address1);
+        list.add(address2);
+        list.add(address3);*/
+        student1.setName("Ruwan");
+        student1.setAddressesList(Arrays.asList(address1,address2,address3));
         saveStudent(student1);
     }
 

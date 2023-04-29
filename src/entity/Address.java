@@ -2,7 +2,6 @@ package entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-
 @Embeddable
 public class Address {
     @Column(length = 45,nullable = false)
