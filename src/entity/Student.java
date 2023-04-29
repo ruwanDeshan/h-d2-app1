@@ -25,7 +25,7 @@ public class Student {
     @Column(name="student_name",length=50,nullable = false)
     private String name;
 
-    @ElementCollection
+    @ElementCollection(fetch =FetchType.EAGER)
     @JoinTable(
             name = "address_table",
             joinColumns = @JoinColumn(name="id")
